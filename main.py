@@ -4,11 +4,15 @@ import glob
 import os
 
 
-if __name__ == '__main__':
+def load_plugins():
     modules = {}
     for path in glob.glob('plugins/[!_]*.py'):
         name, ext = os.path.splitext(os.path.basename(path))
-    modules[name] = imp.load_source(name, path)
+        modules[name] = imp.load_source(name, path)
+    return modules
+
+if __name__ == '__main__':
+    modules = load_plugins()
     pre = core.PreEvent()
     pre.run()
     test = core.BaseTestClass()

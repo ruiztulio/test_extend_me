@@ -4,7 +4,7 @@ import core
 
 class CheckSome(core.PreEvent):
     def run(self):
-        super(CheckAlgo, self).run()
+        super(CheckSome, self).run()
         print "Running checks from Some"
 
 
